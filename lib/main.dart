@@ -17,15 +17,15 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: DefaultTabController(
-            length: 3,
+            length: 4,
             child: Scaffold(
               bottomNavigationBar: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                backgroundColor: Color(0xFF6200EE),
+                backgroundColor: Color(0xFF1E1F26),
                 selectedItemColor: Colors.white,
                 unselectedItemColor: Colors.white.withOpacity(.60),
                 selectedFontSize: 14,
-                unselectedFontSize: 13,
+                unselectedFontSize: 14,
                 onTap: (value) {
                   // Respond to item press.
                 },
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                       icon: SvgPicture.asset(
                         'assets/chalice.svg',
                         colorFilter:
-                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                            ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                         semanticsLabel: 'art',
                         width: 30,
                         height: 30,
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                       icon: SvgPicture.asset(
                         'assets/player.svg',
                         colorFilter:
-                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                            ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                         semanticsLabel: 'art',
                         width: 30,
                         height: 30,
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
                       icon: SvgPicture.asset(
                         'assets/sword.svg',
                         colorFilter:
-                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                            ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                         semanticsLabel: 'art',
                         width: 30,
                         height: 30,
@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
                       icon: SvgPicture.asset(
                         'assets/boss.svg',
                         colorFilter:
-                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                            ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                         semanticsLabel: 'art',
                         width: 30,
                         height: 30,
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
                       icon: SvgPicture.asset(
                         'assets/book.svg',
                         colorFilter:
-                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                            ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                         semanticsLabel: 'art',
                         width: 30,
                         height: 30,
