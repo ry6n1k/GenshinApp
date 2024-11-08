@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,25 +31,55 @@ class MyApp extends StatelessWidget {
                 },
                 items: [
                   BottomNavigationBarItem(
-                    label: 'арты',
-                    icon: Icon(Icons.favorite),
-                  ),
+                      label: 'арты',
+                      icon: SvgPicture.asset(
+                        'assets/chalice.svg',
+                        colorFilter:
+                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                        semanticsLabel: 'art',
+                        width: 30,
+                        height: 30,
+                      )),
                   BottomNavigationBarItem(
-                    label: 'персы',
-                    icon: Icon(Icons.music_note),
-                  ),
+                      label: 'персы',
+                      icon: SvgPicture.asset(
+                        'assets/player.svg',
+                        colorFilter:
+                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                        semanticsLabel: 'art',
+                        width: 30,
+                        height: 30,
+                      )),
                   BottomNavigationBarItem(
-                    label: 'оружие',
-                    icon: Icon(Icons.location_on),
-                  ),
+                      label: 'оружие',
+                      icon: SvgPicture.asset(
+                        'assets/sword.svg',
+                        colorFilter:
+                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                        semanticsLabel: 'art',
+                        width: 30,
+                        height: 30,
+                      )),
                   BottomNavigationBarItem(
-                    label: 'боссы',
-                    icon: Icon(Icons.library_books),
-                  ),
+                      label: 'боссы',
+                      icon: SvgPicture.asset(
+                        'assets/boss.svg',
+                        colorFilter:
+                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                        semanticsLabel: 'art',
+                        width: 30,
+                        height: 30,
+                      )),
                   BottomNavigationBarItem(
-                    label: 'опыт',
-                    icon: Icon(Icons.library_books),
-                  ),
+                      label: 'опыт',
+                      icon: SvgPicture.asset(
+                        'assets/book.svg',
+                        colorFilter:
+                            ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                        semanticsLabel: 'art',
+                        width: 30,
+                        height: 30,
+                      )),
                 ],
               ),
             )));
