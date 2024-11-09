@@ -8,11 +8,39 @@ class BottomNavBar extends StatefulWidget {
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
+class ImageData {
+  final String imagePath;
+  final String name;
+
+  ImageData({
+    required this.imagePath,
+    required this.name
+  });
+}
+
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
-  final List<String> entries = <String>['A', 'B', 'C', 'D'];
-  final List<int> colorCodes = <int>[600, 500, 400, 300];
+  final List<String> entries = <String>[
+    'Изумрудная тень',
+    'Обсидиановый фолиант',
+    'Эмблема рассечённой судьбы'];
+
+  //final List<int> colorCodes = <int>[600, 500, 400, 300];
+  List<ImageData> imageDataList = [
+    ImageData(
+      imagePath: "assets/viridescent-venerer.png",
+      name: "Изумрудная тень"
+    ),
+    ImageData(
+        imagePath: "assets/obsidian-codex.png",
+        name: "Обсидиановый фолиант"
+    ),
+    ImageData(
+        imagePath: "assets/emblem-of-severed-fate.png",
+        name: "Эмблема рассечённой судьбы"
+    ),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -26,17 +54,52 @@ class _BottomNavBarState extends State<BottomNavBar> {
       appBar: AppBar(
         title: const Text('Nav Bar'),
       ),
-      body: ListView.separated(
+      body:ListView.separated(
+          itemCount: imageDataList.length, // Set the number of items in the list
+          separatorBuilder: (BuildContext context, int index) => const Divider(), // Add a divider between each item in the list
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              color: Colors.amber[colorCodes[index]],
-              child: Center(child: Text('Entry ${entries[index]}')),
+            final imageData = imageDataList[index]; // Get the ImageData object at the current index
+            return ListTile(
+              leading: Image.asset(imageData.imagePath), // Display the image on the left side of the ListTile
+              title: Text(imageData.name), // Display the name as the title of the ListTile
             );
-          },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider(),
-          itemCount: entries.length),
+          }
+      ),
+
+
+      // body: ListView(
+      //   children: const[
+      //     ListTile(
+      //       trailing: SvgPicture.asset('assets/book.svg'),
+      //       title: Text('Изумрудная тень'),
+      //     ),
+      //     ListTile(
+      //       trailing: Image('assets/book.svg'),
+      //       title: Text('Обсидиановый фолиант'),
+      //     ),
+      //     ListTile(
+      //       trailing: ,
+      //       title: Text('Эмблема рассечённой судьбы'),
+      //     ),
+      //   ],
+      // )
+
+
+      // ListView.separated(
+      //     itemBuilder: (BuildContext context, int index) {
+      //       return Container(
+      //         height: 50,
+      //         color: Colors.green,
+      //         child: Center(
+      //             child: Text('${entries[index]}')
+      //         ),
+      //       );
+      //     },
+      //     separatorBuilder: (BuildContext context, int index) =>
+      //         const Divider(),
+      //     itemCount: entries.length),
+
+
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Color(0xFF1E1F26),
@@ -52,7 +115,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                   'assets/chalice.svg',
                   colorFilter:
-                      ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
+                  ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                   semanticsLabel: 'art',
                   width: 30,
                   height: 30,
@@ -62,7 +125,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                   'assets/player.svg',
                   colorFilter:
-                      ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
+                  ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                   semanticsLabel: 'art',
                   width: 30,
                   height: 30,
@@ -72,7 +135,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                   'assets/sword.svg',
                   colorFilter:
-                      ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
+                  ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                   semanticsLabel: 'art',
                   width: 30,
                   height: 30,
@@ -82,7 +145,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                   'assets/boss.svg',
                   colorFilter:
-                      ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
+                  ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                   semanticsLabel: 'art',
                   width: 30,
                   height: 30,
@@ -92,7 +155,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                   'assets/book.svg',
                   colorFilter:
-                      ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
+                  ColorFilter.mode(Color(0xFFE5E2CA), BlendMode.srcIn),
                   semanticsLabel: 'art',
                   width: 30,
                   height: 30,
