@@ -11,6 +11,9 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
+  final List<String> entries = <String>['A', 'B', 'C', 'D'];
+  final List<int> colorCodes = <int>[600, 500, 400, 300];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -23,9 +26,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
       appBar: AppBar(
         title: const Text('Nav Bar'),
       ),
-      // body: Center(
-      //   child: _pages.elementAt(_selectedIndex),
-      // ),
+      body: ListView.separated(
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 50,
+              color: Colors.amber[colorCodes[index]],
+              child: Center(child: Text('Entry ${entries[index]}')),
+            );
+          },
+          separatorBuilder: (BuildContext context, int index) =>
+              const Divider(),
+          itemCount: entries.length),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Color(0xFF1E1F26),
